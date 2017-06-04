@@ -11,8 +11,7 @@ namespace csharp_location_service
 		public static void Main (string[] args)
 		{
 			ILog logger = LogManager.GetLogger (typeof(MainClass));
-			//XmlConfigurator.Configure (new FileInfo (Path.Combine("Config","log4netconfiguration.xml")));
-			BasicConfigurator.Configure ();
+			XmlConfigurator.Configure (new FileInfo (Path.Combine("Config","log4netconfiguration.xml")));
 
 			var uri = "http://localhost:8888";
 			var host = new NancyHost (new Uri (uri));

@@ -39,14 +39,15 @@ build {
 
 // Runs an application that does not use Docker
 runNativeApplication << {
+   Properties props = loadProperties()
+	String home = getProjectDirectory()
 	exec {
 		executable "daemonize"
-		workingDir "${buildDir}${File.separator}bin${File.separator}Release"
 		args=["-e", "${home}${File.separator}err",
 			  "-o", "${home}${File.separator}out",
 			  "-p", "${home}${File.separator}pid",
-			  "mono",
-			  "csharp_location_service.exe"]
+			  "/usr/bin/mono",
+			  "${buildDir}${File.separator}bin${File.separator}Release${File.separator}csharp_location_service.exe"]
 	}
 }
 
