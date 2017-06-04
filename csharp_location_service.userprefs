@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="csharp_location_service/csharp_location_service.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="csharp_location_service/Program.cs">
+    <Files>
+      <File FileName="csharp_location_service/Program.cs" Line="8" Column="2" />
+      <File FileName="csharp_location_service/Config/log4netconfiguration.xml.template" Line="13" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
