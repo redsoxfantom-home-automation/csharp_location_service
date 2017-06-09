@@ -20,7 +20,7 @@ namespace csharp_location_service
 			console.Layout = @"${level} [${logger}] - ${message}";
 			cfg.AddTarget ("console", console);
 			LogLevel level = DetermineLogLevel (app.LogLevel);
-			cfg.LoggingRules.Add (new LoggingRule("*", LogLevel.Debug, console));
+			cfg.LoggingRules.Add (new LoggingRule("*", level, console));
 			LogManager.Configuration = cfg;
 			Logger logger = LogManager.GetCurrentClassLogger ();
 
@@ -29,14 +29,13 @@ namespace csharp_location_service
 			logger.Info ("Listening on {0}", uri);
 			host.Start ();
 
-
 			while (true)
 			{
 				
 			}
 		}
 
-		private LogLevel DetermineLogLevel(string logLevel)
+		private static LogLevel DetermineLogLevel(string logLevel)
 		{
 			switch(logLevel)
 			{
