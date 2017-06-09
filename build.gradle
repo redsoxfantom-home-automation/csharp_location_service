@@ -4,6 +4,7 @@
  */
 // Import common tasks
 apply from: "..${File.separator}automation-utilities${File.separator}build${File.separator}build.support.gradle"
+apply from: "..${File.separator}automation-utilities${File.separator}build${File.separator}language_specific${File.separator}build.mono.gradle"
 
 // Define dependencies to copy over in the copyDependencies task
 ext.dependencies = []
@@ -11,23 +12,8 @@ ext.dependencies = []
 // Define executables that must be present on the system to do a native deploy and run
 ext.requiredNativeExecutables = ["mono","daemonize"]
 
-// Compile a mono application
-task buildMono << {
-   exec {
-      executable "nuget"
-      workingDir "${projectDir}${File.separator}csharp_location_service"
-      args=[
-         "install"
-      ]
-   }
-
-   exec {
-      executable "xbuild"
-      args=[
-         "/p:Configuration=Release"
-      ]
-   }
-
+// Copy the DockerFile template into the output
+task copyDockerfile << {
    copy {
       from "${projectDir}${File.separator}Dockerfile.template"
       into "${buildDir}${File.separator}"
@@ -38,8 +24,10 @@ task buildMono << {
 build {
    dependsOn buildMono
    dependsOn parseTemplates
+   dependsOn copyDockerfile
 
-   parseTemplates.mustRunAfter buildMono
+   copyDockerfile.mustRunAfter buildMono
+   parseTemplates.mustRunAfter copyDockerfile
 }
 
 // Runs an application that does not use Docker
