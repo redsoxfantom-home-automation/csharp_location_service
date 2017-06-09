@@ -25,7 +25,9 @@ build {
    dependsOn buildMono
    dependsOn parseTemplates
    dependsOn copyDockerfile
-
+   dependsOn ':../automation-utilities/mono-utils:build'
+   
+   buildMono.mustRunAfter ':../automation-utilities/mono-utils:build'
    copyDockerfile.mustRunAfter buildMono
    parseTemplates.mustRunAfter copyDockerfile
 }
@@ -42,10 +44,6 @@ runNativeApplication << {
 			  "/usr/bin/mono",
 			  "${buildDir}${File.separator}bin${File.separator}Release${File.separator}csharp_location_service.exe"]
 	}
-}
-
-// Creates an application that does not use Docker
-deployNativeApplication << {
 }
 
 // Terminates an application not using Docker
