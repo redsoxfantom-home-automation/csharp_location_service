@@ -27,6 +27,11 @@ task buildMono << {
          "/p:Configuration=Release"
       ]
    }
+
+   copy {
+      from "${projectDir}${File.separator}Dockerfile.template"
+      into "${buildDir}${File.separator}"
+   }
 }
 
 // Overwrite the build task in build.support

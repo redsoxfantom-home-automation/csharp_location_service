@@ -2,8 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="csharp_location_service/Program.cs">
     <Files>
-      <File FileName="csharp_location_service/Program.cs" Line="8" Column="2" />
-      <File FileName="csharp_location_service/Config/log4netconfiguration.xml.template" Line="13" Column="13" />
+      <File FileName="csharp_location_service/Program.cs" Line="52" Column="81" />
+      <File FileName="csharp_location_service/Config/MainConfig.json.template" Line="3" Column="27" />
+      <File FileName="csharp_location_service/DataContracts/MainConfig.cs" Line="8" Column="17" />
+      <File FileName="csharp_location_service/DataContracts/JsonFileParser.cs" Line="14" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

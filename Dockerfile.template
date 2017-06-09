@@ -1,0 +1,6 @@
+FROM ${dockerImage}
+RUN apt-get update && apt-get install -y mono-complete tzdata
+RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+ADD . /csharp_location_service
+EXPOSE ${applicationPort}
+CMD ["/usr/bin/mono", "/csharp_location_service/bin/Release/csharp_location_service.exe"]

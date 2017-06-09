@@ -1,0 +1,4 @@
+﻿{
+	"Port": "${applicationPort}",
+	"LogLevel": "${logLevel}"
+}
