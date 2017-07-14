@@ -6,6 +6,7 @@ using NLog.Config;
 using NLog.Targets;
 using RestSharp;
 using csharp_location_service.DataContracts;
+using Utilities.Zookeeper;
 
 namespace csharp_location_service
 {
@@ -28,6 +29,11 @@ namespace csharp_location_service
 			var host = new NancyHost (new Uri (uri));
 			logger.Info ("Listening on {0}", uri);
 			host.Start ();
+
+			logger.Info ("Connecting to zookeeper and registering service...");
+			ZookeeperAccessor accessor = new ZookeeperAccessor (app.ZookeeperHost, app.ZookeeperPort);
+			accessor.RegisterService ("1.0", "location", app.Port);
+			logger.Info ("Service registration complete");
 
 			while (true)
 			{

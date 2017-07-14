@@ -1,4 +1,6 @@
 ﻿{
-	"Port": "${applicationPort}",
-	"LogLevel": "${logLevel}"
+	"Port": ${applicationPort},
+	"LogLevel": "${logLevel}",
+	"ZookeeperHost": "${zookeeperHost}",
+	"ZookeeperPort": ${zookeeperPort}
 }

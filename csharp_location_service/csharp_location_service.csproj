@@ -37,21 +37,32 @@
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.4.4.10\lib\net45\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="Utilities">
       <HintPath>..\..\automation-utilities\mono-utils\build\Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="ZooKeeperNetEx">
+      <HintPath>..\..\automation-utilities\mono-utils\build\ZooKeeperNetEx.dll</HintPath>
+    </Reference>
+    <Reference Include="ZooKeeperNet">
+      <HintPath>..\packages\ZooKeeper.Net.3.4.6.2\lib\net40\ZooKeeperNet.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataContracts\MainConfig.cs" />
     <Compile Include="DataContracts\JsonFileParser.cs" />
+    <Compile Include="Modules\LocationModule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -63,5 +74,6 @@
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="DataContracts\" />
+    <Folder Include="Modules\" />
   </ItemGroup>
 </Project>
