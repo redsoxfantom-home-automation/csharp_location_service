@@ -7,6 +7,7 @@ using NLog.Targets;
 using RestSharp;
 using csharp_location_service.DataContracts;
 using Utilities.Zookeeper;
+using Nancy;
 
 namespace csharp_location_service
 {

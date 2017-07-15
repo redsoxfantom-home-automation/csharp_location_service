@@ -43,9 +43,6 @@
     <Reference Include="Utilities">
       <HintPath>..\..\automation-utilities\mono-utils\build\Utilities.dll</HintPath>
     </Reference>
-    <Reference Include="ZooKeeperNetEx">
-      <HintPath>..\..\automation-utilities\mono-utils\build\ZooKeeperNetEx.dll</HintPath>
-    </Reference>
     <Reference Include="ZooKeeperNet">
       <HintPath>..\packages\ZooKeeper.Net.3.4.6.2\lib\net40\ZooKeeperNet.dll</HintPath>
     </Reference>
@@ -56,6 +53,9 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="GoogleMaps.LocationServices">
+      <HintPath>..\packages\GoogleMaps.LocationServices.1.2.0.1\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -63,6 +63,7 @@
     <Compile Include="DataContracts\MainConfig.cs" />
     <Compile Include="DataContracts\JsonFileParser.cs" />
     <Compile Include="Modules\LocationModule.cs" />
+    <Compile Include="DataContracts\LocationConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -70,6 +71,10 @@
     <None Include="Config\MainConfig.json.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Config\Location.json.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GoogleMaps.LocationServices.readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
