@@ -11,7 +11,7 @@ using Nancy;
 
 namespace csharp_location_service
 {
-	class MainClass
+	public class MainClass
 	{
 		public static void Main (string[] args)
 		{
@@ -34,6 +34,7 @@ namespace csharp_location_service
 			logger.Info ("Connecting to zookeeper and registering service...");
 			ZookeeperAccessor accessor = new ZookeeperAccessor (app.ZookeeperHost, app.ZookeeperPort);
 			accessor.RegisterService ("1.0", "location", app.Port);
+			accessor.RegisterService ("1.0", "time", app.Port);
 			logger.Info ("Service registration complete");
 
 			while (true)
@@ -58,5 +59,21 @@ namespace csharp_location_service
 					throw new ApplicationException ("Log level " + logLevel + " is not valid");
 			}
 		}
-	}		
+	}
+
+	public class BootStrapper : DefaultNancyBootstrapper
+	{
+		ILogger logger = LogManager.GetCurrentClassLogger();
+
+		protected override void RequestStartup (Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
+		{
+			pipelines.BeforeRequest += (ctx) =>
+			{
+				logger.Info("Received request for {0} from {1}",ctx.Request.Path,ctx.Request.UserHostAddress);
+				return null;
+			};
+
+			base.RequestStartup (container, pipelines, context);
+		}
+	}
 }
