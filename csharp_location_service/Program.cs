@@ -33,8 +33,8 @@ namespace csharp_location_service
 
 			logger.Info ("Connecting to zookeeper and registering service...");
 			ZookeeperAccessor accessor = new ZookeeperAccessor (app.ZookeeperHost, app.ZookeeperPort);
-			accessor.RegisterService ("1.0", "location", app.Port);
-			accessor.RegisterService ("1.0", "time", app.Port);
+			accessor.RegisterService ("1.0", "location", app.Port,"/location");
+			accessor.RegisterService ("1.0", "time", app.Port,"/time");
 			logger.Info ("Service registration complete");
 
 			while (true)
